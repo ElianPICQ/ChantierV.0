@@ -1,0 +1,303 @@
+@charset "UTF-8";
+/* Feuille de style CSS de RIPLand version Web */
+/* Variables */
+/* Couleurs */
+body {
+  margin: 0;
+  font-size: 18px;
+  overflow: hidden;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* background du contenu */
+#page-container {
+  height: 100vh;
+  width: 100%;
+  background-color: #1A1A1D;
+  color: #950740;
+}
+
+/* HEADER */
+header h1 {
+  text-align: center;
+  font-size: 3rem;
+  margin: 0;
+  padding-top: 1.5rem;
+}
+header p {
+  text-align: center;
+}
+
+/************************/
+/** SECTION MINI-JEUX  **/
+/************************/
+section {
+  display: flex;
+}
+
+/***************************************/
+/** Shifumi (Pierre-feuille-ciseaux)  **/
+/***************************************/
+#shifumi {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 565px;
+  height: 375px;
+  margin-left: 50px;
+  border: solid 1px white;
+  /* Bouton de défilement */
+  /* défilement de la boite */
+}
+#shifumi #shifumi-box {
+  width: 500px;
+  height: 375px;
+  padding: 10px;
+  margin: 0;
+  border: solid 2px green;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+#shifumi #shifumi-box #shifumi-title {
+  font-weight: bold;
+  text-decoration: underline;
+}
+#shifumi #shifumi-box #shifumi-choice {
+  border: 1px solid red;
+  width: 100%;
+  height: 75px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+#shifumi #shifumi-box #shifumi-choice label {
+  position: relative;
+  display: inline-block;
+  width: 75px;
+  height: 75px;
+  /* affichage de la pierre cliquable */
+  /* affichage de la feuille cliquable */
+  /* affichage des ciseaux cliquable */
+}
+#shifumi #shifumi-box #shifumi-choice label #shifumi-pierre-display {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  cursor: pointer;
+  background-color: brown;
+  border-radius: 50%;
+  transition: 0.4s;
+}
+#shifumi #shifumi-box #shifumi-choice label #pierre__input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+#shifumi #shifumi-box #shifumi-choice label #pierre__input:checked + #shifumi-pierre-display {
+  background-color: black;
+}
+#shifumi #shifumi-box #shifumi-choice label #shifumi-feuille-display {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  cursor: pointer;
+  background-color: brown;
+  transition: 0.4s;
+}
+#shifumi #shifumi-box #shifumi-choice label #feuille__input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+#shifumi #shifumi-box #shifumi-choice label #feuille__input:checked + #shifumi-feuille-display {
+  background-color: black;
+}
+#shifumi #shifumi-box #shifumi-choice label #shifumi-ciseaux-display {
+  position: absolute;
+  top: 0;
+  right: 40%;
+  bottom: 0;
+  left: 40%;
+  rotate: 45deg;
+  cursor: pointer;
+  background-color: brown;
+  transition: 0.4s;
+}
+#shifumi #shifumi-box #shifumi-choice label #shifumi-ciseaux-display::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  rotate: 90deg;
+  background-color: brown;
+  transition: 0.4s;
+}
+#shifumi #shifumi-box #shifumi-choice label #ciseaux__input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+#shifumi #shifumi-box #shifumi-choice label #ciseaux__input:checked + #shifumi-ciseaux-display {
+  background-color: black;
+}
+#shifumi #shifumi-box #shifumi-choice label #ciseaux__input:checked + #shifumi-ciseaux-display::before {
+  background-color: black;
+}
+#shifumi #shifumi-box #shifumi-fight {
+  width: 80%;
+  height: 75px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  border: solid 1px black;
+}
+#shifumi #shifumi-box #shifumi-fight div {
+  width: 75px;
+  height: 75px;
+  border-left: solid 1px grey;
+  border-right: solid 1px grey;
+}
+#shifumi #shifumi-box #score {
+  width: 100%;
+  height: 55px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  border: solid 1px red;
+}
+#shifumi #shifumi-box #score div {
+  width: 55px;
+  height: 55px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  border: solid 1px red;
+}
+#shifumi #shifumi-box #score div span {
+  width: 100%;
+  height: 20px;
+  text-align: center;
+  border: solid 1px yellow;
+}
+#shifumi #shifumi-toggle {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  margin-left: 10px;
+  border: solid 2px black;
+}
+#shifumi #shifumi-toggle__button {
+  position: absolute;
+  top: 5%;
+  left: 5%;
+  right: 5%;
+  bottom: 5%;
+  cursor: pointer;
+  border-top: solid 5px white;
+  border-right: solid 5px white;
+  border-radius: 10%;
+  rotate: 45deg;
+  transition: rotate 0.5s ease-in-out 0.75s;
+}
+#shifumi #shifumi-toggle__input {
+  opacity: 0;
+  widtth: 0;
+  height: 0;
+}
+#shifumi #shifumi-toggle__input:checked + #shifumi-toggle__button {
+  rotate: 225deg;
+}
+
+.slide-in-left {
+  transition: 0.75s;
+  transform: translateX(-550px);
+}
+
+.slide-out-left {
+  transition: 0.75s;
+  transform: translateX(0);
+}
+
+.slide-in-right {
+  transition: 0.75s;
+  transform: translateX(550px);
+}
+
+.slide-out-right {
+  transition: 0.75s;
+  transform: translateX(0);
+}
+
+/***********************/
+/*** INFINITE SWORD  ***/
+/***********************/
+#sword-container {
+  width: 565px;
+  height: 375px;
+  margin-left: auto;
+  margin-right: 50px;
+  margin-top: 187px;
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  border: solid 10px black;
+  border-radius: 10%;
+}
+#sword-container #sword {
+  overflow-y: scroll;
+  width: min-content;
+  height: 100%;
+  padding-right: 15px;
+  margin: auto;
+}
+#sword-container #sword pre {
+  width: min-content;
+  margin: 0 auto 0 auto;
+}
+#sword-container #sword .hide {
+  display: none;
+}
+#sword-container #sword-toggle {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  margin-right: 10px;
+  border: solid 2px black;
+}
+#sword-container #sword-toggle__button {
+  position: absolute;
+  top: 5%;
+  left: 5%;
+  right: 5%;
+  bottom: 5%;
+  cursor: pointer;
+  border-bottom: solid 5px white;
+  border-left: solid 5px white;
+  border-radius: 10%;
+  rotate: 45deg;
+  transition: rotate 0.5s ease-in-out 0.75s;
+}
+#sword-container #sword-toggle__input {
+  opacity: 0;
+  widtth: 0;
+  height: 0;
+}
+#sword-container #sword-toggle__input:checked + #sword-toggle__button {
+  rotate: 225deg;
+}
+
+/*# sourceMappingURL=RIPLand.css.map */
